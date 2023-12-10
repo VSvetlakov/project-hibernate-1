@@ -5,7 +5,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.cfg.Environment;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
@@ -13,26 +12,12 @@ import org.springframework.stereotype.Repository;
 import javax.annotation.PreDestroy;
 import java.util.List;
 import java.util.Optional;
-import java.util.Properties;
 
 @Repository(value = "db")
 public class PlayerRepositoryDB implements IPlayerRepository {
 
     private final SessionFactory sessionFactory;
     public PlayerRepositoryDB() {
-
-//        Properties properties = new Properties();
-//        properties.put(Environment.DIALECT,"org.hibernate.dialect.MySQL8Dialect");
-//        properties.put(Environment.DRIVER,"com.p6spy.engine.spy.P6SpyDriver");
-//        properties.put(Environment.URL,"jdbc:p6spy:mysql://localhost:3306/rpg");
-//        properties.put(Environment.USER,"root");
-//        properties.put(Environment.PASS,"123456");
-//        properties.put(Environment.HBM2DDL_AUTO,"update");
-//
-//        this.sessionFactory = new Configuration()
-//                .addAnnotatedClass(Player.class)
-//                .addProperties(properties)
-//                .buildSessionFactory();
 
         this.sessionFactory = new Configuration().configure().buildSessionFactory();
 
